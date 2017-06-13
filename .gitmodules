@@ -1,3 +1,0 @@
-[submodule "Assets/Packages/hlsl-noise"]
-	path = Assets/Packages/hlsl-noise
-	url = git@github.com:nobnak/hlsl-noise.git
