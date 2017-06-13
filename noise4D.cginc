@@ -15,7 +15,7 @@ float4 grad4(float j, float4 ip) {
   const float4 ones = float4(1.0, 1.0, 1.0, -1.0);
   float4 p,s;
 
-  p.xyz = floor( fract (float3(j) * ip.xyz) * 7.0) * ip.z - 1.0;
+  p.xyz = floor( frac (j * ip.xyz) * 7.0) * ip.z - 1.0;
   p.w = 1.5 - dot(abs(p.xyz), ones.xyz);
   s = 1 - step(0.0, p); //float4(lessThan(p, float4(0.0)));
   p.xyz -= sign(p.xyz) * (s.w < 0); //(s.xyz*2.0 - 1.0) * s.www; 
@@ -33,7 +33,7 @@ float snoise(float4 v) {
                        -0.447213595499958); // -1 + 4 * G4
 
 // First corner
-  float4 i  = floor(v + dot(v, float4(F4)) );
+  float4 i  = floor(v + dot(v, F4) );
   float4 x0 = v -   i + dot(i, C.xxxx);
 
 // Other corners
