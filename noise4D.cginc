@@ -9,30 +9,7 @@
 //               https://github.com/ashima/webgl-noise
 //               https://github.com/stegu/webgl-noise
 // 
-
-float4 mod289(float4 x) {
-  return fmod(x, 289.0);
-}
-
-float mod289(float x) {
-  return fmod(x, 289.0);
-}
-
-float4 permute(float4 x) {
-     return mod289(((x*34.0)+1.0)*x);
-}
-
-float permute(float x) {
-     return mod289(((x*34.0)+1.0)*x);
-}
-
-float4 taylorInvSqrt(float4 r) {
-  return 1.79284291400159 - 0.85373472095314 * r;
-}
-
-float taylorInvSqrt(float r) {
-  return 1.79284291400159 - 0.85373472095314 * r;
-}
+#include "common.cginc"
 
 float4 grad4(float j, float4 ip) {
   const float4 ones = float4(1.0, 1.0, 1.0, -1.0);

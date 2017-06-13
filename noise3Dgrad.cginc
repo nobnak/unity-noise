@@ -10,25 +10,9 @@
 //               https://github.com/stegu/webgl-noise
 // 
 
-float3 mod289(float3 x) {
-  return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
+#include "common.cginc"
 
-float4 mod289(float4 x) {
-  return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-float4 permute(float4 x) {
-     return mod289(((x*34.0)+1.0)*x);
-}
-
-float4 taylorInvSqrt(float4 r)
-{
-  return 1.79284291400159 - 0.85373472095314 * r;
-}
-
-float snoise(float3 v, out float3 gradient)
-{
+float snoise(float3 v, out float3 gradient) {
   const float2  C = float2(1.0/6.0, 1.0/3.0) ;
   const float4  D = float4(0.0, 0.5, 1.0, 2.0);
 
