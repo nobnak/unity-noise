@@ -1,4 +1,5 @@
-#version 120
+#ifndef __CELLULAR_2D_CGINC__
+#define __CELLULAR_2D_CGINC__
 
 // Cellular noise ("Worley noise") in 2D in GLSL.
 // Copyright (c) Stefan Gustavson 2011-04-19. All rights reserved.
@@ -11,28 +12,25 @@
 // Cellular noise, returning F1 and F2 in a float2.
 // Standard 3x3 search window for good F1 and F2 values
 float2 cellular(float2 P) {
-#define K 0.142857142857 // 1/7
-#define Ko 0.428571428571 // 3/7
-#define jitter 1.0 // Less gives more regular pattern
 	float2 Pi = mod289(floor(P));
- 	float2 Pf = fract(P);
+ 	float2 Pf = frac(P);
 	float3 oi = float3(-1.0, 0.0, 1.0);
 	float3 of = float3(-0.5, 0.5, 1.5);
 	float3 px = permute(Pi.x + oi);
 	float3 p = permute(px.x + Pi.y + oi); // p11, p12, p13
-	float3 ox = fract(p*K) - Ko;
+	float3 ox = frac(p*K) - Ko;
 	float3 oy = mod7(floor(p*K))*K - Ko;
 	float3 dx = Pf.x + 0.5 + jitter*ox;
 	float3 dy = Pf.y - of + jitter*oy;
 	float3 d1 = dx * dx + dy * dy; // d11, d12 and d13, squared
 	p = permute(px.y + Pi.y + oi); // p21, p22, p23
-	ox = fract(p*K) - Ko;
+	ox = frac(p*K) - Ko;
 	oy = mod7(floor(p*K))*K - Ko;
 	dx = Pf.x - 0.5 + jitter*ox;
 	dy = Pf.y - of + jitter*oy;
 	float3 d2 = dx * dx + dy * dy; // d21, d22 and d23, squared
 	p = permute(px.z + Pi.y + oi); // p31, p32, p33
-	ox = fract(p*K) - Ko;
+	ox = frac(p*K) - Ko;
 	oy = mod7(floor(p*K))*K - Ko;
 	dx = Pf.x - 1.5 + jitter*ox;
 	dy = Pf.y - of + jitter*oy;
@@ -50,3 +48,5 @@ float2 cellular(float2 P) {
 	d1.y = min(d1.y, d2.x); // F2 is in d1.y, we're done.
 	return sqrt(d1.xy);
 }
+
+#endif

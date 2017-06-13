@@ -1,3 +1,6 @@
+#ifndef __PSRD_NOISE_2D_CGINC__
+#define __PSRD_NOISE_2D_CGINC__
+
 //
 // float3  psrdnoise(float2 pos, float2 per, float rot)
 // float3  psdnoise(float2 pos, float2 per)
@@ -81,7 +84,7 @@ float2 rgrad2(float2 p, float rot) {
 #else
 // For more isotropic gradients, sin/cos can be used instead.
   float u = permute(permute(p.x) + p.y) * 0.0243902439 + rot; // Rotate by shift
-  u = fract(u) * 6.28318530718; // 2*pi
+  u = frac(u) * 6.28318530718; // 2*pi
   return float2(cos(u), sin(u));
 #endif
 }
@@ -98,7 +101,7 @@ float3 psrdnoise(float2 pos, float2 per, float rot) {
   float2 uv = float2(pos.x + pos.y*0.5, pos.y);
   
   float2 i0 = floor(uv);
-  float2 f0 = fract(uv);
+  float2 f0 = frac(uv);
   // Traversal order
   float2 i1 = (f0.x > f0.y) ? float2(1.0, 0.0) : float2(0.0, 1.0);
 
@@ -200,7 +203,7 @@ float psrnoise(float2 pos, float2 per, float rot) {
   float2 uv = float2(pos.x + pos.y*0.5, pos.y);
   
   float2 i0 = floor(uv);
-  float2 f0 = fract(uv);
+  float2 f0 = frac(uv);
   // Traversal order
   float2 i1 = (f0.x > f0.y) ? float2(1.0, 0.0) : float2(0.0, 1.0);
 
@@ -277,7 +280,7 @@ float3 srdnoise(float2 pos, float rot) {
   float2 uv = float2(pos.x + pos.y*0.5, pos.y);
   
   float2 i0 = floor(uv);
-  float2 f0 = fract(uv);
+  float2 f0 = frac(uv);
   // Traversal order
   float2 i1 = (f0.x > f0.y) ? float2(1.0, 0.0) : float2(0.0, 1.0);
 
@@ -380,7 +383,7 @@ float srnoise(float2 pos, float rot) {
   float2 uv = float2(pos.x + pos.y*0.5, pos.y);
   
   float2 i0 = floor(uv);
-  float2 f0 = fract(uv);
+  float2 f0 = frac(uv);
   // Traversal order
   float2 i1 = (f0.x > f0.y) ? float2(1.0, 0.0) : float2(0.0, 1.0);
 
@@ -449,6 +452,8 @@ float srnoise(float2 pos, float rot) {
 // This one is included mainly for completeness and compatibility
 // with the other functions in the file.
 //
-float snoise(float2 pos) {
-  return srnoise(pos, 0.0);
-}
+//float snoise(float2 pos) {
+//  return srnoise(pos, 0.0);
+//}
+
+#endif

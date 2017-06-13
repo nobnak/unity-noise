@@ -1,3 +1,6 @@
+#ifndef __NOISE_4D_CGINC__
+#define __NOISE_4D_CGINC__
+
 //
 // Description : Array and textureless GLSL 2D/3D/4D simplex 
 //               noise functions.
@@ -102,3 +105,5 @@ float snoise(float4 v) {
                + dot(m1*m1, float2( dot( p3, x3 ), dot( p4, x4 ) ) ) ) ;
 
 }
+
+#endif

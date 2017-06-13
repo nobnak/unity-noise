@@ -1,4 +1,5 @@
-#version 120
+#ifndef __CELLULAR_2X2_CGINC__
+#define __CELLULAR_2X2_CGINC__
 
 // Cellular noise ("Worley noise") in 2D in GLSL.
 // Copyright (c) Stefan Gustavson 2011-04-19. All rights reserved.
@@ -15,11 +16,8 @@
 // If you need a smooth F2, use the slower 3x3 version.
 // F1 is sometimes wrong, too, but OK for most purposes.
 float2 cellular2x2(float2 P) {
-#define K 0.142857142857 // 1/7
-#define K2 0.0714285714285 // K/2
-#define jitter 0.8 // jitter 1.0 makes F1 wrong more often
 	float2 Pi = mod289(floor(P));
- 	float2 Pf = fract(P);
+ 	float2 Pf = frac(P);
 	float4 Pfx = Pf.x + float4(-0.5, -1.5, -0.5, -1.5);
 	float4 Pfy = Pf.y + float4(-0.5, -0.5, -1.5, -1.5);
 	float4 p = permute(Pi.x + float4(0.0, 1.0, 0.0, 1.0));
@@ -45,3 +43,5 @@ float2 cellular2x2(float2 P) {
 	return sqrt(d.xy);
 #endif
 }
+
+#endif

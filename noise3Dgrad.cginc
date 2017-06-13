@@ -1,3 +1,6 @@
+#ifndef __NOISE_3D_GRAD_CGINC__
+#define __NOISE_3D_GRAD_CGINC__
+
 //
 // Description : Array and textureless GLSL 2D/3D/4D simplex 
 //               noise functions.
@@ -62,7 +65,7 @@ float snoise(float3 v, out float3 gradient) {
   //float4 s1 = float4(lessThan(b1,0.0))*2.0 - 1.0;
   float4 s0 = floor(b0)*2.0 + 1.0;
   float4 s1 = floor(b1)*2.0 + 1.0;
-  float4 sh = -step(h, float4(0.0));
+  float4 sh = -step(h, 0.0);
 
   float4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
   float4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
@@ -93,3 +96,5 @@ float snoise(float3 v, out float3 gradient) {
 
   return 42.0 * dot(m4, pdotx);
 }
+
+#endif

@@ -3,6 +3,19 @@
 
 
 
+// Cellular
+#define K 0.142857142857 // 1/7
+#define Ko 0.428571428571 // 1/2-K/2
+#define K2 0.020408163265306 // 1/(7*7)
+#define Kz 0.166666666667 // 1/6
+#define Kzo 0.416666666667 // 1/2-1/6*2
+#define jitter 1.0 // smaller jitter gives more regular pattern
+
+
+float mod(float x, float y) {
+    return x - y * floor(x / y);
+}
+
 #define NOISE_SIMPLEX_1_DIV_289 0.00346020761245674740484429065744f
 float mod289(float x) {
     return x - floor(x * NOISE_SIMPLEX_1_DIV_289) * 289.0;
@@ -50,6 +63,14 @@ float4 taylorInvSqrt(float4 r) {
     return 1.79284291400159 - 0.85373472095314 * r;
 }
 
-
+float2 fade(float2 t) {
+    return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
+}
+float3 fade(float3 t) {
+    return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
+}
+float4 fade(float4 t) {
+    return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
+}
 
 #endif
