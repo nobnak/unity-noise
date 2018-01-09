@@ -17,4 +17,33 @@
 
 #include "psrdnoise2D.cginc"
 
+
+
+float Noise(float2 uv, uint octaves, float atten) {
+	float wsum = 0;
+	float w = 1;
+	float freq = 1;
+	float v = 0;
+
+	[loop]
+	for (uint i = 0; i < octaves; i++) {
+		#if defined(CELLULAR)
+		v += w * cellular(uv * freq);
+		#elif defined(CLASSIC)
+		v += w * cnoise(uv * freq);
+		#elif defined(PSRD)
+		v += w * srnoise(uv * freq, 0.0);
+		#else
+		v += w * snoise(uv * freq);
+		#endif
+
+		wsum += w;
+		w *= atten;
+		freq *= 2;
+	}
+	return v / wsum;
+}
+
+
+
 #endif
