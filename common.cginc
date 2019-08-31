@@ -12,12 +12,7 @@
 #define jitter 1.0 // smaller jitter gives more regular pattern
 
 
-float mod(float x, float y) {
-    return x - y * floor(x / y);
-}
-float4 mod(float4 x, float4 y) {
-    return x - y * floor(x / y);
-}
+#define mod(x, y) (x - y * floor(x / y))
 
 #define NOISE_SIMPLEX_1_DIV_289 0.00346020761245674740484429065744f
 float mod289(float x) {
