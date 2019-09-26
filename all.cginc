@@ -51,6 +51,6 @@ float SNoise(float3 uv, uint octaves, float atten) {
 	}
 	return v / wsum;
 }
-
+#define UNoise(uv, octaves, atten) (0.5 * (SNoise(uv, octaves, atten) + 1))
 
 #endif
