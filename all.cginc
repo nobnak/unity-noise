@@ -25,7 +25,6 @@ float SNoise(float2 uv, uint octaves, float atten) {
 	float freq = 1;
 	float v = 0;
 
-	[loop]
 	for (uint i = 0; i < octaves; i++) {
 		v += w * snoise(uv * freq);
 
@@ -41,7 +40,6 @@ float SNoise(float3 uv, uint octaves, float atten) {
 	float freq = 1;
 	float v = 0;
 
-	[loop]
 	for (uint i = 0; i < octaves; i++) {
 		v += w * snoise(uv * freq);
 
