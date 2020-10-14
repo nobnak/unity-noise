@@ -3,7 +3,7 @@
 //               noise functions.
 //      Author : Ian McEwan, Ashima Arts.
 //  Maintainer : stegu
-//     Lastmod : 20150104 (JcBernack)
+//     Lastmod : 20201014 (stegu)
 //     License : Copyright (C) 2011 Ashima Arts. All rights reserved.
 //               Distributed under the MIT License. See LICENSE file.
 //               https://github.com/ashima/webgl-noise
@@ -96,7 +96,7 @@ float snoise(vec3 v, out vec3 gradient)
   p3 *= norm.w;
 
 // Mix final noise value
-  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+  vec4 m = max(0.5 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
   vec4 m2 = m * m;
   vec4 m4 = m2 * m2;
   vec4 pdotx = vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3));
@@ -105,7 +105,7 @@ float snoise(vec3 v, out vec3 gradient)
   vec4 temp = m2 * m * pdotx;
   gradient = -8.0 * (temp.x * x0 + temp.y * x1 + temp.z * x2 + temp.w * x3);
   gradient += m4.x * p0 + m4.y * p1 + m4.z * p2 + m4.w * p3;
-  gradient *= 42.0;
+  gradient *= 105.0;
 
-  return 42.0 * dot(m4, pdotx);
+  return 105.0 * dot(m4, pdotx);
 }
