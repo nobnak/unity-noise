@@ -33,8 +33,8 @@
         <p>
           The library includes periodic Simplex (2D) and periodic Perlin noise (2D, 3D, 4D).
           <br />
-          per.x=<input id="per_x" type="range" min="1" max="4" step="1" value="2" />
-          per.y=<input id="per_y" type="range" min="1" max="4" step="1" value="2" />
+          per.x=<input id="per_x" type="range" min="2" max="32" step="2" value="8" />
+          per.y=<input id="per_y" type="range" min="2" max="32" step="2" value="8" />
         </p>
 
         <canvas id="psnoise-2d" width="512" height="512"></canvas>
@@ -61,8 +61,8 @@
       Diagram("#snoise-2d-again", '2d', "noise2D.glsl", `snoise(0.5*xy)`, 'plain', false);
       Diagram("#srnoise-2d", '2d', "psrdnoise2D.glsl", `srnoise(0.5*1.2*xy, 0.1*iTime)`, 'plain', true);
 
-      Diagram("#psnoise-2d", '2d', "psrdnoise2D.glsl", `psnoise(xy, per)`, 'plain', false);
-      Diagram("#pnoise-2d", '2d', "classicnoise2D.glsl", `pnoise(xy, per)`, 'plain', false);
+      Diagram("#psnoise-2d", '2d', "psrdnoise2D.glsl", `psnoise(4.0*xy, per)`, 'plain', false);
+      Diagram("#pnoise-2d", '2d', "classicnoise2D.glsl", `pnoise(4.0*xy, per)`, 'plain', false);
     </script>
   </body>
 </html>
