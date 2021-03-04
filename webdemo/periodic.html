@@ -61,8 +61,8 @@
       Diagram("#snoise-2d-again", '2d', "noise2D.glsl", `snoise(0.5*xy)`, 'plain', false);
       Diagram("#srnoise-2d", '2d', "psrdnoise2D.glsl", `srnoise(0.5*1.2*xy, 0.1*iTime)`, 'plain', true);
 
-      Diagram("#psnoise-2d", '2d', "psrdnoise2D.glsl", `psnoise(4.0*xy, per)`, 'plain', false);
-      Diagram("#pnoise-2d", '2d', "classicnoise2D.glsl", `pnoise(4.0*xy, per)`, 'plain', false);
+      Diagram("#psnoise-2d", '2d', "psrdnoise2D.glsl", `psnoise(16.0*xy, per)`, 'plain', false);
+      Diagram("#pnoise-2d", '2d', "classicnoise2D.glsl", `pnoise(16.0*xy, per)`, 'plain', false);
     </script>
   </body>
 </html>
