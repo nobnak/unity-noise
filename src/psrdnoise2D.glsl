@@ -78,7 +78,7 @@ float mod289(float x) {
 
 // Permutation polynomial (ring size 289 = 17*17)
 vec3 permute(vec3 x) {
-  return mod289(((x*34.0)+1.0)*x);
+  return mod289(((x*34.0)+6.0)*x);
 }
 
 float permute(float x) {
