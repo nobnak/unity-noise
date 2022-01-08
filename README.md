@@ -1,6 +1,6 @@
 # Noise for GLSL 1.20
 
-Note that newer, faster and more versatile versions of 2-D and 3-D simplex noise were published in 2022. They can be found on [[https://github.com/stegu/psrdnoise/]]. This repository is still relevant, though, because it has 4-D noise, classic Perlin noise and Worley noise, neither of which are in the new repository.
+Note that newer, faster and more versatile versions of 2-D and 3-D simplex noise were published in 2022. They can be found on https://github.com/stegu/psrdnoise/. This repository is still relevant, though, because it has 4-D noise, classic Perlin noise and Worley noise, neither of which are in the new repository.
 
 Many other noise implementations make heavy use of a texture lookup table and are texture bandwidth limited. The noise functions in this library, however, are completely self contained with no dependency on external data. While not quite as fast as texture-based implementations on typical current desktop GPUs, they are more scalable to massive parallelism and much more convenient to use, and
 they can make good use of unused ALU resources when run concurrently with a typical texture-intensive rendering.
