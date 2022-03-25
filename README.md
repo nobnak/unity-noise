@@ -20,8 +20,7 @@ A scientific paper about this was accepted for publication in JGT, (Journal of G
 
 You can of course use the functions without reading any part of the article. They require no setup or external data, just the GLSL source provided here, and they should work on any current OpenGL platform, including OpenGL 2.1, OpenGL 3.x and 4.x, OpenGL ES 2.x and WebGL 1.0. They will also work in limited vertex shader environments where texture lookup is not available. In WebGL and OpenGL ES, you will need to use high precision (`precision highp float`) for any of the functions to work.
 
-**_NOTE: You don't need a super fast GPU to use these functions. They are useful even on low end hardware, old hardware and embedded OpenGL ES hardware with low performance._**
-
+**_NOTE: You don't need a super fast GPU to use these functions. They are useful even on low end hardware, old hardware and embedded OpenGL ES hardware with low performance. Support for "highp" precision is required, though._**
 ## Live demo!
 
 A WebGL live demo of many of the functions provided are here: https://stegu.github.io/webgl-noise/webdemo/
