@@ -1,12 +1,9 @@
 {
-	"author": {
-		"name": "Nakata Nobuyuki",
-		"email": "nobu.nakata@gmail.com"
-	},
-	"name": "jp.nobnak.snoise",
-	"displayName": "SNoise",
-	"version": "1.0.0",
-
-	"dependencies": {
-	}
+  "author": {
+    "name": "Nakata Nobuyuki",
+    "email": "nobu.nakata@gmail.com"
+  },
+  "name": "jp.nobnak.snoise",
+  "displayName": "Noise for HLSL (Shader Graph)",
+  "version": "2.0.0"
 }
