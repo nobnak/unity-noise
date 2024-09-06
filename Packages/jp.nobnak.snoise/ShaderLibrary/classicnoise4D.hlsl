@@ -15,21 +15,7 @@
 // https://github.com/stegu/webgl-noise
 //
 
-float4 mod289(float4 x) {
-    return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-float4 permute(float4 x) {
-    return mod289(((x * 34.0) + 10.0) * x);
-}
-
-float4 taylorInvSqrt(float4 r) {
-    return 1.79284291400159 - 0.85373472095314 * r;
-}
-
-float4 fade(float4 t) {
-    return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
-}
+#include "common.hlsl"
 
 // Classic Perlin noise
 float cnoise(float4 P) {
@@ -60,8 +46,8 @@ float cnoise(float4 P) {
     gx00 = frac(gx00) - 0.5;
     gy00 = frac(gy00) - 0.5;
     gz00 = frac(gz00) - 0.5;
-    float4 gw00 = float4(0.75) - abs(gx00) - abs(gy00) - abs(gz00);
-    float4 sw00 = step(gw00, float4(0.0));
+    float4 gw00 = 0.75 - abs(gx00) - abs(gy00) - abs(gz00);
+    float4 sw00 = step(gw00, 0.0);
     gx00 -= sw00 * (step(0.0, gx00) - 0.5);
     gy00 -= sw00 * (step(0.0, gy00) - 0.5);
 
@@ -71,8 +57,8 @@ float cnoise(float4 P) {
     gx01 = frac(gx01) - 0.5;
     gy01 = frac(gy01) - 0.5;
     gz01 = frac(gz01) - 0.5;
-    float4 gw01 = float4(0.75) - abs(gx01) - abs(gy01) - abs(gz01);
-    float4 sw01 = step(gw01, float4(0.0));
+    float4 gw01 = 0.75 - abs(gx01) - abs(gy01) - abs(gz01);
+    float4 sw01 = step(gw01, 0.0);
     gx01 -= sw01 * (step(0.0, gx01) - 0.5);
     gy01 -= sw01 * (step(0.0, gy01) - 0.5);
 
@@ -82,8 +68,8 @@ float cnoise(float4 P) {
     gx10 = frac(gx10) - 0.5;
     gy10 = frac(gy10) - 0.5;
     gz10 = frac(gz10) - 0.5;
-    float4 gw10 = float4(0.75) - abs(gx10) - abs(gy10) - abs(gz10);
-    float4 sw10 = step(gw10, float4(0.0));
+    float4 gw10 = 0.75 - abs(gx10) - abs(gy10) - abs(gz10);
+    float4 sw10 = step(gw10, 0.0);
     gx10 -= sw10 * (step(0.0, gx10) - 0.5);
     gy10 -= sw10 * (step(0.0, gy10) - 0.5);
 
@@ -93,8 +79,8 @@ float cnoise(float4 P) {
     gx11 = frac(gx11) - 0.5;
     gy11 = frac(gy11) - 0.5;
     gz11 = frac(gz11) - 0.5;
-    float4 gw11 = float4(0.75) - abs(gx11) - abs(gy11) - abs(gz11);
-    float4 sw11 = step(gw11, float4(0.0));
+    float4 gw11 = 0.75 - abs(gx11) - abs(gy11) - abs(gz11);
+    float4 sw11 = step(gw11, 0.0);
     gx11 -= sw11 * (step(0.0, gx11) - 0.5);
     gy11 -= sw11 * (step(0.0, gy11) - 0.5);
 
@@ -165,9 +151,6 @@ float cnoise(float4 P) {
     return 2.2 * n_xyzw;
 }
 
-float4 mod(float4 a, float4 b) {
-    return a - b * floor(a / b);
-}
 // Classic Perlin noise, periodic version
 float pnoise(float4 P, float4 rep) {
     float4 Pi0 = mod(floor(P), rep); // Integer part modulo rep
@@ -197,8 +180,8 @@ float pnoise(float4 P, float4 rep) {
     gx00 = frac(gx00) - 0.5;
     gy00 = frac(gy00) - 0.5;
     gz00 = frac(gz00) - 0.5;
-    float4 gw00 = float4(0.75) - abs(gx00) - abs(gy00) - abs(gz00);
-    float4 sw00 = step(gw00, float4(0.0));
+    float4 gw00 = 0.75 - abs(gx00) - abs(gy00) - abs(gz00);
+    float4 sw00 = step(gw00, 0.0);
     gx00 -= sw00 * (step(0.0, gx00) - 0.5);
     gy00 -= sw00 * (step(0.0, gy00) - 0.5);
 
@@ -208,8 +191,8 @@ float pnoise(float4 P, float4 rep) {
     gx01 = frac(gx01) - 0.5;
     gy01 = frac(gy01) - 0.5;
     gz01 = frac(gz01) - 0.5;
-    float4 gw01 = float4(0.75) - abs(gx01) - abs(gy01) - abs(gz01);
-    float4 sw01 = step(gw01, float4(0.0));
+    float4 gw01 = 0.75 - abs(gx01) - abs(gy01) - abs(gz01);
+    float4 sw01 = step(gw01, 0.0);
     gx01 -= sw01 * (step(0.0, gx01) - 0.5);
     gy01 -= sw01 * (step(0.0, gy01) - 0.5);
 
@@ -219,8 +202,8 @@ float pnoise(float4 P, float4 rep) {
     gx10 = frac(gx10) - 0.5;
     gy10 = frac(gy10) - 0.5;
     gz10 = frac(gz10) - 0.5;
-    float4 gw10 = float4(0.75) - abs(gx10) - abs(gy10) - abs(gz10);
-    float4 sw10 = step(gw10, float4(0.0));
+    float4 gw10 = 0.75 - abs(gx10) - abs(gy10) - abs(gz10);
+    float4 sw10 = step(gw10, 0.0);
     gx10 -= sw10 * (step(0.0, gx10) - 0.5);
     gy10 -= sw10 * (step(0.0, gy10) - 0.5);
 
@@ -230,8 +213,8 @@ float pnoise(float4 P, float4 rep) {
     gx11 = frac(gx11) - 0.5;
     gy11 = frac(gy11) - 0.5;
     gz11 = frac(gz11) - 0.5;
-    float4 gw11 = float4(0.75) - abs(gx11) - abs(gy11) - abs(gz11);
-    float4 sw11 = step(gw11, float4(0.0));
+    float4 gw11 = 0.75 - abs(gx11) - abs(gy11) - abs(gz11);
+    float4 sw11 = step(gw11, 0.0);
     gx11 -= sw11 * (step(0.0, gx11) - 0.5);
     gy11 -= sw11 * (step(0.0, gy11) - 0.5);
 

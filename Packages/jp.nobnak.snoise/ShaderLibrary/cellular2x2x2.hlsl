@@ -7,29 +7,7 @@
 // See LICENSE file for details.
 // https://github.com/stegu/webgl-noise
 
-// Modulo 289 without a division (only multiplications)
-float3 mod289(float3 x) {
-  return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-float4 mod289(float4 x) {
-  return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-// Modulo 7 without a division
-float4 mod7(float4 x) {
-  return x - floor(x * (1.0 / 7.0)) * 7.0;
-}
-
-
-// Permutation polynomial: (34x^2 + 6x) mod 289
-float3 permute(float3 x) {
-  return mod289((34.0 * x + 10.0) * x);
-}
-
-float4 permute(float4 x) {
-  return mod289((34.0 * x + 10.0) * x);
-}
+#include "common.hlsl"
 
 // Cellular noise, returning F1 and F2 in a float2.
 // Speeded up by using 2x2x2 search window instead of 3x3x3,
@@ -50,7 +28,7 @@ float2 cellular2x2x2(float3 P) {
 	float4 p = permute(Pi.x + float4(0.0, 1.0, 0.0, 1.0));
 	p = permute(p + Pi.y + float4(0.0, 0.0, 1.0, 1.0));
 	float4 p1 = permute(p + Pi.z); // z+0
-	float4 p2 = permute(p + Pi.z + float4(1.0)); // z+1
+	float4 p2 = permute(p + Pi.z + 1.0); // z+1
 	float4 ox1 = frac(p1*K) - Ko;
 	float4 oy1 = mod7(floor(p1*K))*K - Ko;
 	float4 oz1 = floor(p1*K2)*Kz - Kzo; // p1 < 289 guaranteed

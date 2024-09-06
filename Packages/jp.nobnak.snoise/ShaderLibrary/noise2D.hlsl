@@ -12,17 +12,7 @@
 //               https://github.com/stegu/webgl-noise
 // 
 
-float3 mod289(float3 x) {
-    return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-float2 mod289(float2 x) {
-    return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-float3 permute(float3 x) {
-    return mod289(((x * 34.0) + 10.0) * x);
-}
+#include "common.hlsl"
 
 float snoise(float2 v) {
     const float4 C = float4(0.211324865405187, // (3.0-sqrt(3.0))/6.0

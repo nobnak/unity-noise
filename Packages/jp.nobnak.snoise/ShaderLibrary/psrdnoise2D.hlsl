@@ -70,23 +70,7 @@
 // (If you run into problems with this, please let me know.)
 //
 
-// Modulo 289, optimizes to code without divisions
-float3 mod289(float3 x) {
-    return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-float mod289(float x) {
-    return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-// Permutation polynomial (ring size 289 = 17*17)
-float3 permute(float3 x) {
-    return mod289(((x * 34.0) + 10.0) * x);
-}
-
-float permute(float x) {
-    return mod289(((x * 34.0) + 1.0) * x);
-}
+#include "common.hlsl"
 
 // Hashed 2-D gradients with an extra rotation.
 // (The constant 0.0243902439 is 1/41)
@@ -105,9 +89,6 @@ float2 rgrad2(float2 p, float rot) {
 #endif
 }
 
-float3 mod(float3 a, float3 b) {
-    return a - b * floor(a / b);
-}
 //
 // 2-D tiling simplex noise with rotating gradients and analytical derivative.
 // The first component of the 3-element return floattor is the noise value,

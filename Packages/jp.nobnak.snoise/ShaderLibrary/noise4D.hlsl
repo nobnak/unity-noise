@@ -13,41 +13,7 @@
 //               https://github.com/stegu/webgl-noise
 // 
 
-float4 mod289(float4 x) {
-    return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-float mod289(float x) {
-    return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-float4 permute(float4 x) {
-    return mod289(((x * 34.0) + 10.0) * x);
-}
-
-float permute(float x) {
-    return mod289(((x * 34.0) + 10.0) * x);
-}
-
-float4 taylorInvSqrt(float4 r) {
-    return 1.79284291400159 - 0.85373472095314 * r;
-}
-
-float taylorInvSqrt(float r) {
-    return 1.79284291400159 - 0.85373472095314 * r;
-}
-
-float4 grad4(float j, float4 ip) {
-    const float4 ones = float4(1.0, 1.0, 1.0, -1.0);
-    float4 p, s;
-
-    p.xyz = floor(frac(float3(j) * ip.xyz) * 7.0) * ip.z - 1.0;
-    p.w = 1.5 - dot(abs(p.xyz), ones.xyz);
-    s = float4(p < float4(0.0));
-    p.xyz = p.xyz + (s.xyz * 2.0 - 1.0) * s.www;
-
-    return p;
-}
+#include "common.hlsl"
 						
 // (sqrt(5) - 1)/4 = F4, used once below
 #define F4 0.309016994374947451
@@ -59,7 +25,7 @@ float snoise(float4 v) {
                        -0.447213595499958); // -1 + 4 * G4
 
     // First corner
-    float4 i = floor(v + dot(v, float4(F4)));
+    float4 i = floor(v + dot(v, F4));
     float4 x0 = v - i + dot(i, C.xxxx);
 
     // Other corners

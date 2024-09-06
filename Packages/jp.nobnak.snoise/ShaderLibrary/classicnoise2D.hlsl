@@ -15,21 +15,7 @@
 // https://github.com/stegu/webgl-noise
 //
 
-float4 mod289(float4 x) {
-    return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-float4 permute(float4 x) {
-    return mod289(((x * 34.0) + 10.0) * x);
-}
-
-float4 taylorInvSqrt(float4 r) {
-    return 1.79284291400159 - 0.85373472095314 * r;
-}
-
-float2 fade(float2 t) {
-    return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
-}
+#include "common.hlsl"
 
 // Classic Perlin noise
 float cnoise(float2 P) {
@@ -70,9 +56,6 @@ float cnoise(float2 P) {
     return 2.3 * n_xy;
 }
 
-float4 mod(float4 a, float4 b) {
-    return a - b * floor(a / b);
-}
 // Classic Perlin noise, periodic variant
 float pnoise(float2 P, float2 rep) {
     float4 Pi = floor(P.xyxy) + float4(0.0, 0.0, 1.0, 1.0);
