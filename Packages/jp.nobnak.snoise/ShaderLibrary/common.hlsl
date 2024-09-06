@@ -1,5 +1,5 @@
-#ifndef __COMMON__
-#define __COMMON__
+#ifndef __NOISE_COMMON__
+#define __NOISE_COMMON__
 
 float mod(float a, float b) {
     return a - b * floor(a / b);
