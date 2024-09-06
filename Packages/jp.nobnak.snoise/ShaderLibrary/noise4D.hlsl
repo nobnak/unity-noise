@@ -129,4 +129,8 @@ float snoise(float4 v) {
 
 }
 
+void snoise_float(float4 In, out float Out) {
+    Out = snoise(In);
+}
+
 #endif
