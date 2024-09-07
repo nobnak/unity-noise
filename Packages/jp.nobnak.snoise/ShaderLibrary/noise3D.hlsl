@@ -16,8 +16,8 @@
 #include "common.hlsl"
 
 float snoise(float3 v) {
-    const float2 C = float2(1.0 / 6.0, 1.0 / 3.0);
-    const float4 D = float4(0.0, 0.5, 1.0, 2.0);
+    static float2 C = float2(1.0 / 6.0, 1.0 / 3.0);
+    static float4 D = float4(0.0, 0.5, 1.0, 2.0);
 
     // First corner
     float3 i = floor(v + dot(v, C.yyy));

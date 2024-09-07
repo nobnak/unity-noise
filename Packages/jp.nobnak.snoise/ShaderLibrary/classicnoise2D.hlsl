@@ -56,6 +56,9 @@ float cnoise(float2 P) {
     return 2.3 * n_xy;
 }
 
+float4 mod(float4 a, float4 b) {
+    return a - b * floor(a / b);
+}
 // Classic Perlin noise, periodic variant
 float pnoise(float2 P, float2 rep) {
     float4 Pi = floor(P.xyxy) + float4(0.0, 0.0, 1.0, 1.0);

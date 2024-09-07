@@ -28,7 +28,7 @@ float2 cellular2x2x2(float3 P) {
 	float4 p = permute(Pi.x + float4(0.0, 1.0, 0.0, 1.0));
 	p = permute(p + Pi.y + float4(0.0, 0.0, 1.0, 1.0));
 	float4 p1 = permute(p + Pi.z); // z+0
-	float4 p2 = permute(p + Pi.z + 1.0); // z+1
+	float4 p2 = permute(p + Pi.z + float4(1.0)); // z+1
 	float4 ox1 = frac(p1*K) - Ko;
 	float4 oy1 = mod7(floor(p1*K))*K - Ko;
 	float4 oz1 = floor(p1*K2)*Kz - Kzo; // p1 < 289 guaranteed

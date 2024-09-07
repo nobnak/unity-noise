@@ -38,7 +38,8 @@ float4 mod7(float4 x) {
 
 // Permutation polynomial (ring size 289 = 17*17)
 float permute(float x) {
-    return mod289(((x * 34.0) + 1.0) * x);
+    //return mod289(((x * 34.0) + 1.0) * x);
+    return mod289(((x * 34.0) + 10.0) * x);
 }
 float3 permute(float3 x) {
     return mod289(((x * 34.0) + 10.0) * x);
@@ -55,7 +56,7 @@ float4 taylorInvSqrt(float4 r) {
 }
 
 float4 grad4(float j, float4 ip) {
-    const float4 ones = float4(1.0, 1.0, 1.0, -1.0);
+    static float4 ones = float4(1.0, 1.0, 1.0, -1.0);
     float4 p, s;
 
     p.xyz = floor(frac(j * ip.xyz) * 7.0) * ip.z - 1.0;
