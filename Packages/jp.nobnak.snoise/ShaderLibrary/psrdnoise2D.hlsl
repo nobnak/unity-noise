@@ -452,7 +452,7 @@ float srnoise(float2 pos, float rot) {
 // This one is included mainly for completeness and compatibility
 // with the other functions in the file.
 //
-float snoise(float2 pos) {
+float snoise_psrd(float2 pos) {
     return srnoise(pos, 0.0);
 }
 

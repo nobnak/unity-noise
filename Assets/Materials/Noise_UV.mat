@@ -20,14 +20,17 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Noise
+  m_Name: Noise_UV
   m_Shader: {fileID: -6465566751694194690, guid: c3feab7d3dcaf22479ac2cf1e3777c8a,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _DIM_3D
+  - _NOISE_NOISE
+  m_InvalidKeywords:
   - _COORD_UV
-  m_InvalidKeywords: []
+  - _NOISE_CELLULAR3D
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -54,8 +57,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _COORD: 0
-    - _Detail: 0.519
-    - _Instability: 1.13
+    - _DIM: 1
+    - _Detail: 0.5
+    - _Instability: 1.1
+    - _NOISE: 0
     - _Overtone: 0.5
     - _Overtone_spd: 1.1
     - _Overtone_str: 0.5
