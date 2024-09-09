@@ -456,10 +456,10 @@ float snoise_psrd(float2 pos) {
     return srnoise(pos, 0.0);
 }
 
-void psrdnoise_float(float2 In, float2 per, float rot, out float Out, out float2 pd) {
-    float3 n = psrdnoise(In, per, rot);
+void psrdnoise_float(float2 In, float2 Per, float Rot, out float Out, out float2 Partial) {
+    float3 n = psrdnoise(In, Per, Rot);
     Out = n.x;
-    pd = n.yz;
+    Partial = n.yz;
 }
 
 #endif
