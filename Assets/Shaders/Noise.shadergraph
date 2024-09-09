@@ -197,6 +197,12 @@
         },
         {
             "m_Id": "73647bd4f7874487a443757a08926e2e"
+        },
+        {
+            "m_Id": "eb7e4d8fcdc74152838c22cf17f024e7"
+        },
+        {
+            "m_Id": "a5ed692a62054068804358a662146a2b"
         }
     ],
     "m_StickyNoteDatas": [],
@@ -3213,7 +3219,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "568296500c82413eba30bef9f9c8f954",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "a5ed692a62054068804358a662146a2b"
     },
     "m_Name": "Classic4D_p",
     "m_DrawState": {
@@ -4258,7 +4264,7 @@
     "m_Group": {
         "m_Id": "bca0f4931b9a49daba58176e2be5c1d7"
     },
-    "m_Name": "OctaveNoise4",
+    "m_Name": "Octave4D",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -5014,6 +5020,17 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "a5ed692a62054068804358a662146a2b",
+    "m_Title": "Classic (Repeat)",
+    "m_Position": {
+        "x": 10.0,
+        "y": 10.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "a5fae6f9825f4deab76a231fd1b83ef5",
     "m_Id": 0,
@@ -5316,7 +5333,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "b41abc6f368f41399fd67c28b3ba5b1a",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "eb7e4d8fcdc74152838c22cf17f024e7"
     },
     "m_Name": "Classic3D",
     "m_DrawState": {
@@ -5384,7 +5401,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "b77ed406f4544984a656459d36ae4e4f",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "eb7e4d8fcdc74152838c22cf17f024e7"
     },
     "m_Name": "Classic2D",
     "m_DrawState": {
@@ -5616,7 +5633,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "bd11f431543a4cfbbc904efeb1b16f07",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "eb7e4d8fcdc74152838c22cf17f024e7"
     },
     "m_Name": "Classic4D",
     "m_DrawState": {
@@ -5877,7 +5894,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "c69ddb2c44f84948852b2d1443d92fe4",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "a5ed692a62054068804358a662146a2b"
     },
     "m_Name": "Classic2D_p",
     "m_DrawState": {
@@ -6166,7 +6183,7 @@
     "m_Group": {
         "m_Id": "bca0f4931b9a49daba58176e2be5c1d7"
     },
-    "m_Name": "OctaveNoise3",
+    "m_Name": "Octave3D",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -6713,6 +6730,17 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "eb7e4d8fcdc74152838c22cf17f024e7",
+    "m_Title": "Classic",
+    "m_Position": {
+        "x": 10.0,
+        "y": 10.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "ec7903cf05a44d229aed78647b220f09",
     "m_Id": 2,
@@ -6844,7 +6872,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SubGraphNode",
     "m_ObjectId": "ef8e00e159c644a4b8a69c9bbdec3d54",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "a5ed692a62054068804358a662146a2b"
     },
     "m_Name": "Classic3D_p",
     "m_DrawState": {
