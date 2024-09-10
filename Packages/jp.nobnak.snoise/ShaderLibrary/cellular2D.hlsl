@@ -12,9 +12,9 @@
 // Cellular noise, returning F1 and F2 in a float2.
 // Standard 3x3 search window for good F1 and F2 values
 float2 cellular(float2 P) {
-#define K 0.142857142857 // 1/7
-#define Ko 0.428571428571 // 3/7
-#define jitter 1.0 // Less gives more regular pattern
+    static float K = 0.142857142857; // 1/7
+    static float Ko = 0.428571428571; // 3/7
+    static float jitter = 1.0; // Less gives more regular pattern
     float2 Pi = mod289(floor(P));
     float2 Pf = frac(P);
     float3 oi = float3(-1.0, 0.0, 1.0);

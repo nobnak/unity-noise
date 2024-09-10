@@ -16,9 +16,9 @@
 // If you need a smooth F2, use the slower 3x3 version.
 // F1 is sometimes wrong, too, but OK for most purposes.
 float2 cellular2x2(float2 P) {
-#define K 0.142857142857 // 1/7
-#define K2 0.0714285714285 // K/2
-#define jitter 0.8 // jitter 1.0 makes F1 wrong more often
+    static float K = 0.142857142857; // 1/7
+    static float K2 = 0.0714285714285; // K/2
+    static float jitter = 0.8; // jitter 1.0 makes F1 wrong more often
     float2 Pi = mod289(floor(P));
     float2 Pf = frac(P);
     float4 Pfx = Pf.x + float4(-0.5, -1.5, -0.5, -1.5);

@@ -15,12 +15,12 @@
 // F2 is often wrong and has sharp discontinuities.
 // If you need a good F2, use the slower 3x3x3 version.
 float2 cellular2x2x2(float3 P) {
-#define K 0.142857142857 // 1/7
-#define Ko 0.428571428571 // 1/2-K/2
-#define K2 0.020408163265306 // 1/(7*7)
-#define Kz 0.166666666667 // 1/6
-#define Kzo 0.416666666667 // 1/2-1/6*2
-#define jitter 0.8 // smaller jitter gives less errors in F2
+    static float K = 0.142857142857; // 1/7
+    static float Ko = 0.428571428571; // 1/2-K/2
+    static float K2 = 0.020408163265306; // 1/(7*7)
+    static float Kz = 0.166666666667; // 1/6
+    static float Kzo = 0.416666666667; // 1/2-1/6*2
+    static float jitter = 0.8; // smaller jitter gives less errors in F2
 	float3 Pi = mod289(floor(P));
  	float3 Pf = frac(P);
 	float4 Pfx = Pf.x + float4(0.0, -1.0, 0.0, -1.0);
