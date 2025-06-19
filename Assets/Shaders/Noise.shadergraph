@@ -1664,6 +1664,7 @@
     "m_SourceType": 0,
     "m_FunctionName": "snoise",
     "m_FunctionSource": "fddfcb9ad60879b49968295b987b1377",
+    "m_FunctionSourceUsePragmas": true,
     "m_FunctionBody": "Enter function body here..."
 }
 
@@ -4001,8 +4002,8 @@
     "m_ObjectId": "73647bd4f7874487a443757a08926e2e",
     "m_Title": "Simplex",
     "m_Position": {
-        "x": 10.0,
-        "y": 10.0
+        "x": 187.0,
+        "y": -1609.499755859375
     }
 }
 
@@ -5024,8 +5025,8 @@
     "m_ObjectId": "a5ed692a62054068804358a662146a2b",
     "m_Title": "Classic (Repeat)",
     "m_Position": {
-        "x": 10.0,
-        "y": 10.0
+        "x": 200.5,
+        "y": 2648.499755859375
     }
 }
 
@@ -5585,8 +5586,8 @@
     "m_ObjectId": "bca0f4931b9a49daba58176e2be5c1d7",
     "m_Title": "Octave Noise",
     "m_Position": {
-        "x": 16.799846649169923,
-        "y": -1018.3999633789063
+        "x": 17.500001907348634,
+        "y": -659.5
     }
 }
 
@@ -6734,8 +6735,8 @@
     "m_ObjectId": "eb7e4d8fcdc74152838c22cf17f024e7",
     "m_Title": "Classic",
     "m_Position": {
-        "x": 10.0,
-        "y": 10.0
+        "x": 200.5,
+        "y": 1653.4998779296875
     }
 }
 
@@ -7170,8 +7171,8 @@
     "m_ObjectId": "fb7a2d13f2bf478da30f2b1fe3c53bbf",
     "m_Title": "Cellular",
     "m_Position": {
-        "x": 10.0,
-        "y": 10.0
+        "x": 200.5,
+        "y": 168.0
     }
 }
 

@@ -60,25 +60,17 @@ float cnoise(float3 P) {
     float3 g111 = float3(gx1.w, gy1.w, gz1.w);
 
     float4 norm0 = taylorInvSqrt(float4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
-    g000 *= norm0.x;
-    g010 *= norm0.y;
-    g100 *= norm0.z;
-    g110 *= norm0.w;
     float4 norm1 = taylorInvSqrt(float4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
-    g001 *= norm1.x;
-    g011 *= norm1.y;
-    g101 *= norm1.z;
-    g111 *= norm1.w;
-
-    float n000 = dot(g000, Pf0);
-    float n100 = dot(g100, float3(Pf1.x, Pf0.yz));
-    float n010 = dot(g010, float3(Pf0.x, Pf1.y, Pf0.z));
-    float n110 = dot(g110, float3(Pf1.xy, Pf0.z));
-    float n001 = dot(g001, float3(Pf0.xy, Pf1.z));
-    float n101 = dot(g101, float3(Pf1.x, Pf0.y, Pf1.z));
-    float n011 = dot(g011, float3(Pf0.x, Pf1.yz));
-    float n111 = dot(g111, Pf1);
-
+    
+    float n000 = norm0.x * dot(g000, Pf0);
+    float n010 = norm0.y * dot(g010, float3(Pf0.x, Pf1.y, Pf0.z));
+    float n100 = norm0.z * dot(g100, float3(Pf1.x, Pf0.yz));
+    float n110 = norm0.w * dot(g110, float3(Pf1.xy, Pf0.z));
+    float n001 = norm1.x * dot(g001, float3(Pf0.xy, Pf1.z));
+    float n011 = norm1.y * dot(g011, float3(Pf0.x, Pf1.yz));
+    float n101 = norm1.z * dot(g101, float3(Pf1.x, Pf0.y, Pf1.z));
+    float n111 = norm1.w * dot(g111, Pf1);
+    
     float3 fade_xyz = fade(Pf0);
     float4 n_z = lerp(float4(n000, n100, n010, n110), float4(n001, n101, n011, n111), fade_xyz.z);
     float2 n_yz = lerp(n_z.xy, n_z.zw, fade_xyz.y);
@@ -129,24 +121,16 @@ float pnoise(float3 P, float3 rep) {
     float3 g111 = float3(gx1.w, gy1.w, gz1.w);
 
     float4 norm0 = taylorInvSqrt(float4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
-    g000 *= norm0.x;
-    g010 *= norm0.y;
-    g100 *= norm0.z;
-    g110 *= norm0.w;
     float4 norm1 = taylorInvSqrt(float4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
-    g001 *= norm1.x;
-    g011 *= norm1.y;
-    g101 *= norm1.z;
-    g111 *= norm1.w;
 
-    float n000 = dot(g000, Pf0);
-    float n100 = dot(g100, float3(Pf1.x, Pf0.yz));
-    float n010 = dot(g010, float3(Pf0.x, Pf1.y, Pf0.z));
-    float n110 = dot(g110, float3(Pf1.xy, Pf0.z));
-    float n001 = dot(g001, float3(Pf0.xy, Pf1.z));
-    float n101 = dot(g101, float3(Pf1.x, Pf0.y, Pf1.z));
-    float n011 = dot(g011, float3(Pf0.x, Pf1.yz));
-    float n111 = dot(g111, Pf1);
+    float n000 = norm0.x * dot(g000, Pf0);
+    float n010 = norm0.y * dot(g010, float3(Pf0.x, Pf1.y, Pf0.z));
+    float n100 = norm0.z * dot(g100, float3(Pf1.x, Pf0.yz));
+    float n110 = norm0.w * dot(g110, float3(Pf1.xy, Pf0.z));
+    float n001 = norm1.x * dot(g001, float3(Pf0.xy, Pf1.z));
+    float n011 = norm1.y * dot(g011, float3(Pf0.x, Pf1.yz));
+    float n101 = norm1.z * dot(g101, float3(Pf1.x, Pf0.y, Pf1.z));
+    float n111 = norm1.w * dot(g111, Pf1);
 
     float3 fade_xyz = fade(Pf0);
     float4 n_z = lerp(float4(n000, n100, n010, n110), float4(n001, n101, n011, n111), fade_xyz.z);

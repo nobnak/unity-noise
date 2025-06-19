@@ -4,8 +4,8 @@
 //
 // GLSL textureless classic 2D noise "cnoise",
 // with an RSL-style periodic variant "pnoise".
-// Author:  Stefan Gustavson (stefan.gustavson@liu.se)
-// Version: 2011-08-22
+// Author:  Stefan Gustavson (stefan.gustavson@gmail.com)
+// Version: 2024-11-07
 //
 // Many thanks to Ian McEwan of Ashima Arts for the
 // ideas for permutation and gradient selection.
@@ -40,15 +40,10 @@ float cnoise(float2 P) {
     float2 g11 = float2(gx.w, gy.w);
 
     float4 norm = taylorInvSqrt(float4(dot(g00, g00), dot(g01, g01), dot(g10, g10), dot(g11, g11)));
-    g00 *= norm.x;
-    g01 *= norm.y;
-    g10 *= norm.z;
-    g11 *= norm.w;
-
-    float n00 = dot(g00, float2(fx.x, fy.x));
-    float n10 = dot(g10, float2(fx.y, fy.y));
-    float n01 = dot(g01, float2(fx.z, fy.z));
-    float n11 = dot(g11, float2(fx.w, fy.w));
+    float n00 = norm.x * dot(g00, float2(fx.x, fy.x));
+    float n01 = norm.y * dot(g01, float2(fx.z, fy.z));
+    float n10 = norm.z * dot(g10, float2(fx.y, fy.y));
+    float n11 = norm.w * dot(g11, float2(fx.w, fy.w));
 
     float2 fade_xy = fade(Pf.xy);
     float2 n_x = lerp(float2(n00, n01), float2(n10, n11), fade_xy.x);
@@ -80,15 +75,11 @@ float pnoise(float2 P, float2 rep) {
     float2 g11 = float2(gx.w, gy.w);
 
     float4 norm = taylorInvSqrt(float4(dot(g00, g00), dot(g01, g01), dot(g10, g10), dot(g11, g11)));
-    g00 *= norm.x;
-    g01 *= norm.y;
-    g10 *= norm.z;
-    g11 *= norm.w;
 
-    float n00 = dot(g00, float2(fx.x, fy.x));
-    float n10 = dot(g10, float2(fx.y, fy.y));
-    float n01 = dot(g01, float2(fx.z, fy.z));
-    float n11 = dot(g11, float2(fx.w, fy.w));
+    float n00 = norm.x * dot(g00, float2(fx.x, fy.x));
+    float n01 = norm.y * dot(g01, float2(fx.z, fy.z));
+    float n10 = norm.z * dot(g10, float2(fx.y, fy.y));
+    float n11 = norm.w * dot(g11, float2(fx.w, fy.w));
 
     float2 fade_xy = fade(Pf.xy);
     float2 n_x = lerp(float2(n00, n01), float2(n10, n11), fade_xy.x);

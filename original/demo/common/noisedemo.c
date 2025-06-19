@@ -15,7 +15,7 @@
  * provided you have the relevant libraries and header files installed
  * and set up your compilation to include the GLFW and OpenGL libraries.
  *
- * Author: Stefan Gustavson (stegu@itn.liu.se) 2004, 2005, 2010, 2011
+ * Author: Stefan Gustavson (stefan.gustavson@liu.se) 2004, 2005, 2010, 2011
  * This code is in the public domain.
  */
 
