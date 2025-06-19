@@ -1,4 +1,4 @@
-# Noise for Shader Graph (HLSL) in Unity
+# Noise nodes (for unity)
 
 This is a port of [Noise for GLSL](https://github.com/stegu/webgl-noise/) to Unity (HLSL).
 
