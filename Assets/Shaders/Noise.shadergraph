@@ -4003,7 +4003,7 @@
     "m_Title": "Simplex",
     "m_Position": {
         "x": 187.0,
-        "y": -1609.499755859375
+        "y": -1609.5
     }
 }
 
@@ -4265,7 +4265,7 @@
     "m_Group": {
         "m_Id": "bca0f4931b9a49daba58176e2be5c1d7"
     },
-    "m_Name": "Octave4D",
+    "m_Name": "Fractal4D",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -5026,7 +5026,7 @@
     "m_Title": "Classic (Repeat)",
     "m_Position": {
         "x": 200.5,
-        "y": 2648.499755859375
+        "y": 2648.5
     }
 }
 
@@ -5586,7 +5586,7 @@
     "m_ObjectId": "bca0f4931b9a49daba58176e2be5c1d7",
     "m_Title": "Octave Noise",
     "m_Position": {
-        "x": 17.500001907348634,
+        "x": 17.5,
         "y": -659.5
     }
 }
@@ -6184,7 +6184,7 @@
     "m_Group": {
         "m_Id": "bca0f4931b9a49daba58176e2be5c1d7"
     },
-    "m_Name": "Octave3D",
+    "m_Name": "Fractal3D",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -6736,7 +6736,7 @@
     "m_Title": "Classic",
     "m_Position": {
         "x": 200.5,
-        "y": 1653.4998779296875
+        "y": 1653.5
     }
 }
 

@@ -20,17 +20,17 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Octave_3D
+  m_Name: Fractal_2D
   m_Shader: {fileID: -6465566751694194690, guid: c3feab7d3dcaf22479ac2cf1e3777c8a,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _DIM_4D
+  - _DIM_3D
   - _NOISE_OCTAVE
   m_InvalidKeywords:
-  - _COORD_WORLD
-  - _NOISE_NOISE4D
+  - _COORD_UV
+  - _NOISE_CELLULAR3D
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -56,8 +56,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _COORD: 1
-    - _DIM: 2
+    - _COORD: 0
+    - _DIM: 1
     - _Detail: 0.5
     - _Instability: 1.1
     - _NOISE: 1
@@ -67,7 +67,7 @@ Material:
     - _Phase: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 0.1
+    - _Scale: 1
     - _Speed: 0.2
     m_Colors: []
   m_BuildTextureStacks: []
