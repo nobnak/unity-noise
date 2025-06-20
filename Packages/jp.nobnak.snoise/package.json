@@ -4,6 +4,6 @@
     "email": "nobu.nakata@gmail.com"
   },
   "name": "jp.nobnak.snoise",
-  "displayName": "Noise for HLSL (Shader Graph)",
-  "version": "2.2.2"
+  "displayName": "Gradient Noise Nodes",
+  "version": "2.2.3"
 }
