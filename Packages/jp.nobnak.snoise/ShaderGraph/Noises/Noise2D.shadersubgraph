@@ -158,21 +158,6 @@
 }
 
 {
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "46422a141076480b800e177076a104b7",
-    "m_Id": 1,
-    "m_DisplayName": "Out_Vector1",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "OutVector1",
-    "m_StageCapability": 3,
-    "m_Value": 0.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
-}
-
-{
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector2ShaderProperty",
     "m_ObjectId": "4efd9abff6034b9193c5203841c5df20",
@@ -198,6 +183,21 @@
         "z": 0.0,
         "w": 0.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "529bc66df4fb4d48b41a9ca0576862d2",
+    "m_Id": 1,
+    "m_DisplayName": "Out",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
 {
@@ -261,6 +261,7 @@
     "m_SourceType": 0,
     "m_FunctionName": "snoise",
     "m_FunctionSource": "fddfcb9ad60879b49968295b987b1377",
+    "m_FunctionSourceUsePragmas": true,
     "m_FunctionBody": "Enter function body here..."
 }
 
@@ -299,7 +300,7 @@
     },
     "m_Slots": [
         {
-            "m_Id": "46422a141076480b800e177076a104b7"
+            "m_Id": "529bc66df4fb4d48b41a9ca0576862d2"
         }
     ],
     "synonyms": [],

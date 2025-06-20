@@ -169,7 +169,7 @@
     },
     "m_Slots": [
         {
-            "m_Id": "a94676fee6e44318b17ce72143d4718e"
+            "m_Id": "da237e5ff483467a8ce8f71822567378"
         }
     ],
     "synonyms": [],
@@ -251,6 +251,7 @@
     "m_SourceType": 0,
     "m_FunctionName": "snoise",
     "m_FunctionSource": "3a9fe0e0656eb4c439d8ab46fe202bbd",
+    "m_FunctionSourceUsePragmas": true,
     "m_FunctionBody": "Enter function body here..."
 }
 
@@ -271,21 +272,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "a94676fee6e44318b17ce72143d4718e",
-    "m_Id": 1,
-    "m_DisplayName": "Out_Vector1",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "OutVector1",
-    "m_StageCapability": 3,
-    "m_Value": 0.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.CategoryData",
     "m_ObjectId": "b8a9e2ce608249f0b6551ed83a932742",
     "m_Name": "",
@@ -294,6 +280,21 @@
             "m_Id": "6cffb413e2e449a1a167949bf20ac157"
         }
     ]
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "da237e5ff483467a8ce8f71822567378",
+    "m_Id": 1,
+    "m_DisplayName": "Out",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
 {
