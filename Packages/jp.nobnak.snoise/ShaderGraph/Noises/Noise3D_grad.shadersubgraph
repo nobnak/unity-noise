@@ -165,10 +165,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 208.79998779296876,
-            "y": -138.39999389648438,
-            "width": 86.4000244140625,
-            "height": 76.79998779296875
+            "x": 209.0,
+            "y": -138.5,
+            "width": 100.0,
+            "height": 101.0
         }
     },
     "m_Slots": [
@@ -245,6 +245,7 @@
     "m_SourceType": 0,
     "m_FunctionName": "snoise",
     "m_FunctionSource": "3a9fe0e0656eb4c439d8ab46fe202bbd",
+    "m_FunctionSourceUsePragmas": true,
     "m_FunctionBody": "Enter function body here..."
 }
 
