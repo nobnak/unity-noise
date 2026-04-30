@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 9
+  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -21,16 +21,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Classic_3D
-  m_Shader: {fileID: -6465566751694194690, guid: c3feab7d3dcaf22479ac2cf1e3777c8a,
+  m_Shader: {fileID: -6465566751694194690, guid: 70e375f95eba41a4cb18bb0ea4fa649d,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _DIM_4D
-  - _NOISE_CLASSIC
+  - _OUTPUT_DIMENSION_3D
   m_InvalidKeywords:
   - _COORD_UV
+  - _DIM_4D
   - _NOISE_CELLULAR3D
+  - _NOISE_CLASSIC
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -58,16 +59,20 @@ Material:
     m_Floats:
     - _COORD: 0
     - _DIM: 2
-    - _Detail: 0.5
+    - _Detail: 4
+    - _Dimension: 1
     - _Instability: 1.1
+    - _Lacunarity: 2
     - _NOISE: 4
+    - _Noise: 2
+    - _OUTPUT_DIMENSION: 1
     - _Overtone: 0.5
     - _Overtone_spd: 1.1
     - _Overtone_str: 0.5
     - _Phase: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 0.1
+    - _Scale: 1
     - _Speed: 0.2
     m_Colors: []
   m_BuildTextureStacks: []
