@@ -1,11 +1,7 @@
 #ifndef __MUSGRAVE_4D__
 #define __MUSGRAVE_4D__
 
-// Shader Graph Custom Function:
-//   Function name: Musgrave4D
-//   Float: Musgrave4D_float(float4 In, float Scale, float Detail, float Dimension, float Lacunarity, float Type, out float Out)
-//   Half:  Musgrave4D_half(float4 In, half Scale, half Detail, half Dimension, half Lacunarity, half Type, out half Out)
-// Type: 0 fBm, 1 Multifractal, 2 Ridged multifractal, 3 Hybrid multifractal, 4 Heterogeneous terrain
+// Shader Graph: Musgrave4D_float(float4 In, float Scale, float Detail, float Dimension, float Lacunarity, float Type, out float Out, out float AmpUpper)
 
 #include "../noise4D.hlsl"
 
@@ -15,14 +11,17 @@
 #undef MUSGRAVE_SAMPLE
 #undef MUSGRAVE_COORD_T
 
-void Musgrave4D_float(float4 In, float Scale, float Detail, float Dimension, float Lacunarity, float Type, out float Out)
+void Musgrave4D_float(float4 In, float Scale, float Detail, float Dimension, float Lacunarity, float Type, out float Out, out float AmpUpper)
 {
-	Out = MusgraveNoise_Simplex(In, Scale, Detail, Dimension, Lacunarity, (int)Type);
+	MusgraveNoise_Simplex(In, Scale, Detail, Dimension, Lacunarity, (int)Type, Out, AmpUpper);
 }
 
-void Musgrave4D_half(float4 In, half Scale, half Detail, half Dimension, half Lacunarity, half Type, out half Out)
+void Musgrave4D_half(float4 In, half Scale, half Detail, half Dimension, half Lacunarity, half Type, out half Out, out half AmpUpper)
 {
-	Out = (half)MusgraveNoise_Simplex(In, (float)Scale, (float)Detail, (float)Dimension, (float)Lacunarity, (int)Type);
+	float o, a;
+	MusgraveNoise_Simplex(In, (float)Scale, (float)Detail, (float)Dimension, (float)Lacunarity, (int)Type, o, a);
+	Out = (half)o;
+	AmpUpper = (half)a;
 }
 
 #endif
