@@ -33,7 +33,8 @@
         {"m_OutputSlot": {"m_Node": {"m_Id": "33555555555555555555555555555555"}, "m_SlotId": 0}, "m_InputSlot": {"m_Node": {"m_Id": "32222222222222222222222222222222"}, "m_SlotId": 4}},
         {"m_OutputSlot": {"m_Node": {"m_Id": "33666666666666666666666666666666"}, "m_SlotId": 0}, "m_InputSlot": {"m_Node": {"m_Id": "32222222222222222222222222222222"}, "m_SlotId": 5}},
         {"m_OutputSlot": {"m_Node": {"m_Id": "32222222222222222222222222222222"}, "m_SlotId": 6}, "m_InputSlot": {"m_Node": {"m_Id": "31111111111111111111111111111111"}, "m_SlotId": 1}},
-        {"m_OutputSlot": {"m_Node": {"m_Id": "32222222222222222222222222222222"}, "m_SlotId": 7}, "m_InputSlot": {"m_Node": {"m_Id": "31111111111111111111111111111111"}, "m_SlotId": 2}}
+        {"m_OutputSlot": {"m_Node": {"m_Id": "32222222222222222222222222222222"}, "m_SlotId": 7}, "m_InputSlot": {"m_Node": {"m_Id": "31111111111111111111111111111111"}, "m_SlotId": 2}},
+        {"m_OutputSlot": {"m_Node": {"m_Id": "32222222222222222222222222222222"}, "m_SlotId": 8}, "m_InputSlot": {"m_Node": {"m_Id": "31111111111111111111111111111111"}, "m_SlotId": 3}}
     ],
     "m_VertexContext": {"m_Position": {"x": 0.0, "y": 0.0}, "m_Blocks": []},
     "m_FragmentContext": {"m_Position": {"x": 0.0, "y": 0.0}, "m_Blocks": []},
@@ -206,7 +207,8 @@
     "m_DrawState": {"m_Expanded": true, "m_Position": {"serializedVersion": "2", "x": 400.0, "y": 0.0, "width": 0.0, "height": 0.0}},
     "m_Slots": [
         {"m_Id": "3e111111111111111111111111111111"},
-        {"m_Id": "3e999999999999999999999999999999"}
+        {"m_Id": "3e999999999999999999999999999999"},
+        {"m_Id": "faaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa02"}
     ],
     "synonyms": [],
     "m_Precision": 0,
@@ -222,10 +224,25 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "3e999999999999999999999999999999",
     "m_Id": 2,
-    "m_DisplayName": "AmpUpper",
+    "m_DisplayName": "Upper",
     "m_SlotType": 0,
     "m_Hidden": false,
-    "m_ShaderOutputName": "AmpUpper",
+    "m_ShaderOutputName": "outUpper",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "faaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa02",
+    "m_Id": 3,
+    "m_DisplayName": "Lower",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "outLower",
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
@@ -262,7 +279,8 @@
         {"m_Id": "3d555555555555555555555555555555"},
         {"m_Id": "3d666666666666666666666666666666"},
         {"m_Id": "3d777777777777777777777777777777"},
-        {"m_Id": "3d888888888888888888888888888888"}
+        {"m_Id": "3d888888888888888888888888888888"},
+        {"m_Id": "3d999999999999999999999999999999"}
     ],
     "synonyms": ["code", "HLSL"],
     "m_Precision": 0,
@@ -387,10 +405,25 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "3d888888888888888888888888888888",
     "m_Id": 7,
-    "m_DisplayName": "AmpUpper",
+    "m_DisplayName": "Upper",
     "m_SlotType": 1,
     "m_Hidden": false,
-    "m_ShaderOutputName": "AmpUpper",
+    "m_ShaderOutputName": "outUpper",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "3d999999999999999999999999999999",
+    "m_Id": 8,
+    "m_DisplayName": "Lower",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "outLower",
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,

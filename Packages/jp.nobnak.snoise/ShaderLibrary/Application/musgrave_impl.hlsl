@@ -14,11 +14,12 @@
 #define MUSGRAVE_HYBRID_MULTIFRACTAL 3
 #define MUSGRAVE_HETEROGENEOUS_TERRAIN 4
 
-// outAmpUpper: conservative upper bound on |Out| assuming |noise|<=1 (Simplex snoise nominal range).
+// Amp bands assume |noise|<=1. Upper/Lower are conservative brackets for normalization (Hybrid/Heterogeneous lower is symmetric heuristic).
 static void MusgraveNoise_Simplex(MUSGRAVE_COORD_T x, float scale, float detail, float dimension,
-	float lacunarity, int musgraveType, out float outNoise, out float outAmpUpper)
+	float lacunarity, int musgraveType, out float outNoise, out float outUpper, out float outLower)
 {
 	static const int MAX_OCT = 15;
+	static const float PROD_LO_EPS = 1e-6;
 	float d = max(detail, 0.0);
 	int N = (int)floor(d);
 	float r = d - floor(d);
@@ -29,20 +30,24 @@ static void MusgraveNoise_Simplex(MUSGRAVE_COORD_T x, float scale, float detail,
 	if (musgraveType == MUSGRAVE_MULTIFRACTAL) {
 		float prod = 1.0;
 		float prodUb = 1.0;
+		float prodLb = 1.0;
 		float freq = 1.0;
 		for (int i = 0; i < N; ++i) {
 			float ai = pow(lac, -(float)i * dimension);
 			prod *= (1.0 + ai * MUSGRAVE_SAMPLE(x0 * freq));
 			prodUb *= (1.0 + ai);
+			prodLb *= max(1.0 - ai, PROD_LO_EPS);
 			freq *= lac;
 		}
 		if (r > 0.0) {
 			float ai = pow(lac, -(float)N * dimension);
 			prod *= (1.0 + r * ai * MUSGRAVE_SAMPLE(x0 * freq));
 			prodUb *= (1.0 + r * ai);
+			prodLb *= max(1.0 - r * ai, PROD_LO_EPS);
 		}
 		outNoise = prod;
-		outAmpUpper = prodUb;
+		outUpper = prodUb;
+		outLower = prodLb;
 		return;
 	}
 
@@ -68,7 +73,8 @@ static void MusgraveNoise_Simplex(MUSGRAVE_COORD_T x, float scale, float detail,
 			ampSum += r * ai;
 		}
 		outNoise = sum;
-		outAmpUpper = ampSum;
+		outUpper = ampSum;
+		outLower = 0.0;
 		return;
 	}
 
@@ -77,23 +83,24 @@ static void MusgraveNoise_Simplex(MUSGRAVE_COORD_T x, float scale, float detail,
 		float n0 = MUSGRAVE_SAMPLE(x0);
 		float f = n0;
 		float w = f;
-		float ampSum = 0.0;
+		float ampUb = 1.0;
 		for (int i = 0; i < N; ++i) {
 			float ai = pow(lac, -(float)i * dimension);
 			float s = MUSGRAVE_SAMPLE(x0 * freq);
 			f += w * ai * s;
 			w *= s;
-			ampSum += ai;
+			ampUb += ai;
 			freq *= lac;
 		}
 		if (r > 0.0) {
 			float ai = pow(lac, -(float)N * dimension);
 			float s = MUSGRAVE_SAMPLE(x0 * freq);
 			f += r * w * ai * s;
-			ampSum += r * ai;
+			ampUb += r * ai;
 		}
 		outNoise = f;
-		outAmpUpper = 1.0 + ampSum;
+		outUpper = ampUb;
+		outLower = -ampUb;
 		return;
 	}
 
@@ -115,7 +122,8 @@ static void MusgraveNoise_Simplex(MUSGRAVE_COORD_T x, float scale, float detail,
 			prodUb *= (1.0 + r * ai);
 		}
 		outNoise = f;
-		outAmpUpper = prodUb;
+		outUpper = prodUb;
+		outLower = -prodUb;
 		return;
 	}
 
@@ -135,7 +143,8 @@ static void MusgraveNoise_Simplex(MUSGRAVE_COORD_T x, float scale, float detail,
 		ampSum += r * ai;
 	}
 	outNoise = sum;
-	outAmpUpper = ampSum;
+	outUpper = ampSum;
+	outLower = -ampSum;
 }
 
 #endif

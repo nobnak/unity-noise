@@ -1,10 +1,8 @@
 #ifndef __MUSGRAVE_2D__
 #define __MUSGRAVE_2D__
 
-// Shader Graph Custom Function name: Musgrave2D
-// Float:  Musgrave2D_float(float2 In, float Scale, float Detail, float Dimension, float Lacunarity, float Type, out float Out, out float AmpUpper)
-// Half:   Musgrave2D_half(..., out half Out, out half AmpUpper)
-// AmpUpper assumes |noise|<=1. Types: 0 fBm, 1 Multifractal, 2 Ridged, 3 Hybrid, 4 Heterogeneous
+// Shader Graph: Musgrave2D_float(..., out float Out, out float outUpper, out float outLower)
+// outUpper/outLower: bracket for normalization; Ridged outLower=0; Multifractal uses Πmax(1-ai,ε); Hybrid/Heterogeneous outLower is symmetric heuristic (-outUpper).
 
 #include "../noise2D.hlsl"
 
@@ -14,17 +12,18 @@
 #undef MUSGRAVE_SAMPLE
 #undef MUSGRAVE_COORD_T
 
-void Musgrave2D_float(float2 In, float Scale, float Detail, float Dimension, float Lacunarity, float Type, out float Out, out float AmpUpper)
+void Musgrave2D_float(float2 In, float Scale, float Detail, float Dimension, float Lacunarity, float Type, out float Out, out float outUpper, out float outLower)
 {
-	MusgraveNoise_Simplex(In, Scale, Detail, Dimension, Lacunarity, (int)Type, Out, AmpUpper);
+	MusgraveNoise_Simplex(In, Scale, Detail, Dimension, Lacunarity, (int)Type, Out, outUpper, outLower);
 }
 
-void Musgrave2D_half(float2 In, half Scale, half Detail, half Dimension, half Lacunarity, half Type, out half Out, out half AmpUpper)
+void Musgrave2D_half(float2 In, half Scale, half Detail, half Dimension, half Lacunarity, half Type, out half Out, out half outUpper, out half outLower)
 {
-	float o, a;
-	MusgraveNoise_Simplex(In, (float)Scale, (float)Detail, (float)Dimension, (float)Lacunarity, (int)Type, o, a);
+	float o, hi, lo;
+	MusgraveNoise_Simplex(In, (float)Scale, (float)Detail, (float)Dimension, (float)Lacunarity, (int)Type, o, hi, lo);
 	Out = (half)o;
-	AmpUpper = (half)a;
+	outUpper = (half)hi;
+	outLower = (half)lo;
 }
 
 #endif
