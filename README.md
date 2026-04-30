@@ -1,11 +1,10 @@
-# Noise nodes (for unity)
+# Gradient Noise nodes (for unity)
 
 This is a port of [Noise for GLSL](https://github.com/stegu/webgl-noise/) to Unity (HLSL).
 
 ## Example
 
 Outputs<br>
-[![Example01](http://img.youtube.com/vi/H1YNj7giQVI/hqdefault.jpg)](https://youtube.com/shorts/H1YNj7giQVI)
 [![Example02](http://img.youtube.com/vi/tglN3BLJ9fI/hqdefault.jpg)](https://youtu.be/tglN3BLJ9fI)
 
 Nodes<br>
