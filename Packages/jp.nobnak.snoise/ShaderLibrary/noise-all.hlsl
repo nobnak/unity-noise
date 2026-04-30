@@ -8,7 +8,6 @@
 #include "classicnoise2D.hlsl"
 #include "classicnoise3D.hlsl"
 #include "classicnoise4D.hlsl"
-#include "noise-all.hlsl"
 #include "noise2D.hlsl"
 #include "noise3D.hlsl"
 #include "noise3Dgrad.hlsl"
