@@ -20,6 +20,9 @@ static void MusgraveNoise_Simplex(MUSGRAVE_COORD_T x, float scale, float detail,
 {
 	static const int MAX_OCT = 15;
 	static const float PROD_LO_EPS = 1e-6;
+	outNoise = 0.0;
+	outUpper = 0.0;
+	outLower = 0.0;
 	float d = max(detail, 0.0);
 	int N = (int)floor(d);
 	float r = d - floor(d);
