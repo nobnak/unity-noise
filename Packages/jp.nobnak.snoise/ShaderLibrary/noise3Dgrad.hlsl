@@ -15,7 +15,7 @@
 
 #include "common.hlsl"
 
-float snoise(float3 v, out float3 gradient) {
+[noinline] float snoise(float3 v, out float3 gradient) {
     static float2 C = float2(1.0 / 6.0, 1.0 / 3.0);
     static float4 D = float4(0.0, 0.5, 1.0, 2.0);
 
@@ -97,7 +97,7 @@ float snoise(float3 v, out float3 gradient) {
     return 105.0 * dot(m4, pdotx);
 }
 
-void snoise_float(float3 In, out float Out, out float3 Gradient) {
+[noinline] void snoise_float(float3 In, out float Out, out float3 Gradient) {
     Out = snoise(In, Gradient);
 }
 

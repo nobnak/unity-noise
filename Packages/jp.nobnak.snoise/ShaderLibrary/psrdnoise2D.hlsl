@@ -74,7 +74,7 @@
 
 // Hashed 2-D gradients with an extra rotation.
 // (The constant 0.0243902439 is 1/41)
-float2 rgrad2(float2 p, float rot) {
+[noinline] float2 rgrad2(float2 p, float rot) {
 #if 0
 // Map from a line to a diamond such that a shift maps to a rotation.
   float u = permute(permute(p.x) + p.y) * 0.0243902439 + rot; // Rotate by shift
@@ -94,7 +94,7 @@ float2 rgrad2(float2 p, float rot) {
 // The first component of the 3-element return floattor is the noise value,
 // and the second and third components are the x and y partial derivatives.
 //
-float3 psrdnoise(float2 pos, float2 per, float rot) {
+[noinline] float3 psrdnoise(float2 pos, float2 per, float rot) {
   // Hack: offset y slightly to hide some rare artifacts
     pos.y += 0.01;
   // Skew to hexagonal grid
@@ -188,7 +188,7 @@ float3 psrdnoise(float2 pos, float2 per, float rot) {
 // This function is implemented as a wrapper to "psrdnoise",
 // at the minimal cost of three extra additions.
 //
-float3 psdnoise(float2 pos, float2 per) {
+[noinline] float3 psdnoise(float2 pos, float2 per) {
     return psrdnoise(pos, per, 0.0);
 }
 
@@ -196,7 +196,7 @@ float3 psdnoise(float2 pos, float2 per) {
 // 2-D tiling simplex noise with rotating gradients,
 // but without the analytical derivative.
 //
-float psrnoise(float2 pos, float2 per, float rot) {
+[noinline] float psrnoise(float2 pos, float2 per, float rot) {
   // Offset y slightly to hide some rare artifacts
     pos.y += 0.001;
   // Skew to hexagonal grid
@@ -264,7 +264,7 @@ float psrnoise(float2 pos, float2 per, float rot) {
 // This function is implemented as a wrapper to "psrnoise",
 // at the minimal cost of three extra additions.
 //
-float psnoise(float2 pos, float2 per) {
+[noinline] float psnoise(float2 pos, float2 per) {
     return psrnoise(pos, per, 0.0);
 }
 
@@ -273,7 +273,7 @@ float psnoise(float2 pos, float2 per) {
 // The first component of the 3-element return floattor is the noise value,
 // and the second and third components are the x and y partial derivatives.
 //
-float3 srdnoise(float2 pos, float rot) {
+[noinline] float3 srdnoise(float2 pos, float rot) {
   // Offset y slightly to hide some rare artifacts
     pos.y += 0.001;
   // Skew to hexagonal grid
@@ -368,7 +368,7 @@ float3 srdnoise(float2 pos, float rot) {
 // This function is implemented as a wrapper to "srdnoise",
 // at the minimal cost of three extra additions.
 //
-float3 sdnoise(float2 pos) {
+[noinline] float3 sdnoise(float2 pos) {
     return srdnoise(pos, 0.0);
 }
 
@@ -376,7 +376,7 @@ float3 sdnoise(float2 pos) {
 // 2-D non-tiling simplex noise with rotating gradients,
 // without the analytical derivative.
 //
-float srnoise(float2 pos, float rot) {
+[noinline] float srnoise(float2 pos, float rot) {
   // Offset y slightly to hide some rare artifacts
     pos.y += 0.001;
   // Skew to hexagonal grid
@@ -452,11 +452,11 @@ float srnoise(float2 pos, float rot) {
 // This one is included mainly for completeness and compatibility
 // with the other functions in the file.
 //
-float snoise_psrd(float2 pos) {
+[noinline] float snoise_psrd(float2 pos) {
     return srnoise(pos, 0.0);
 }
 
-void psrdnoise_float(float2 In, float2 Per, float Rot, out float Out, out float2 Partial) {
+[noinline] void psrdnoise_float(float2 In, float2 Per, float Rot, out float Out, out float2 Partial) {
     float3 n = psrdnoise(In, Per, Rot);
     Out = n.x;
     Partial = n.yz;

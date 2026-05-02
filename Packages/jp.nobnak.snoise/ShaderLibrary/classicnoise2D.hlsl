@@ -18,7 +18,7 @@
 #include "common.hlsl"
 
 // Classic Perlin noise
-float cnoise(float2 P) {
+[noinline] float cnoise(float2 P) {
     float4 Pi = floor(P.xyxy) + float4(0.0, 0.0, 1.0, 1.0);
     float4 Pf = frac(P.xyxy) - float4(0.0, 0.0, 1.0, 1.0);
     Pi = mod289(Pi); // To avoid truncation effects in permutation
@@ -52,7 +52,7 @@ float cnoise(float2 P) {
 }
 
 // Classic Perlin noise, periodic variant
-float pnoise(float2 P, float2 rep) {
+[noinline] float pnoise(float2 P, float2 rep) {
     float4 Pi = floor(P.xyxy) + float4(0.0, 0.0, 1.0, 1.0);
     float4 Pf = frac(P.xyxy) - float4(0.0, 0.0, 1.0, 1.0);
     Pi = mod(Pi, rep.xyxy); // To create noise with explicit period
@@ -87,10 +87,10 @@ float pnoise(float2 P, float2 rep) {
     return 2.3 * n_xy;
 }
 
-void cnoise_float(float2 In, out float Out) {
+[noinline] void cnoise_float(float2 In, out float Out) {
     Out = cnoise(In);
 }
-void pnoise_float(float2 In, float2 rep, out float Out) {
+[noinline] void pnoise_float(float2 In, float2 rep, out float Out) {
     Out = pnoise(In, rep);
 }
 

@@ -17,7 +17,7 @@
 // modern GPU. In any case, it beats any software
 // implementation of Worley noise hands down.
 
-float2 cellular(float3 P) {
+[noinline] float2 cellular(float3 P) {
     static float K = 0.142857142857; // 1/7
     static float Ko = 0.428571428571; // 1/2-K/2
     static float K2 = 0.020408163265306; // 1/(7*7)
@@ -174,7 +174,7 @@ float2 cellular(float3 P) {
 #endif
 }
 
-void cellular_float(float3 In, out float2 Out) {
+[noinline] void cellular_float(float3 In, out float2 Out) {
 	Out = cellular(In);
 }
 

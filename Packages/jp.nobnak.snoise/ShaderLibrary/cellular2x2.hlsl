@@ -15,7 +15,7 @@
 // F2 is often wrong and has sharp discontinuities.
 // If you need a smooth F2, use the slower 3x3 version.
 // F1 is sometimes wrong, too, but OK for most purposes.
-float2 cellular2x2(float2 P) {
+[noinline] float2 cellular2x2(float2 P) {
     static float K = 0.142857142857; // 1/7
     static float K2 = 0.0714285714285; // K/2
     static float jitter = 0.8; // jitter 1.0 makes F1 wrong more often
@@ -47,7 +47,7 @@ float2 cellular2x2(float2 P) {
 #endif
 }
 
-void cellular2x2_float(float2 In, out float2 Out) {
+[noinline] void cellular2x2_float(float2 In, out float2 Out) {
     Out = cellular2x2(In);
 }
 

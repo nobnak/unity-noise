@@ -18,7 +18,7 @@
 #include "common.hlsl"
 
 // Classic Perlin noise
-float cnoise(float3 P) {
+[noinline] float cnoise(float3 P) {
     float3 Pi0 = floor(P); // Integer part for indexing
     float3 Pi1 = Pi0 + 1.0; // Integer part + 1
     Pi0 = mod289(Pi0);
@@ -79,7 +79,7 @@ float cnoise(float3 P) {
 }
 
 // Classic Perlin noise, periodic variant
-float pnoise(float3 P, float3 rep) {
+[noinline] float pnoise(float3 P, float3 rep) {
     float3 Pi0 = mod(floor(P), rep); // Integer part, modulo period
     float3 Pi1 = mod(Pi0 + 1.0, rep); // Integer part + 1, mod period
     Pi0 = mod289(Pi0);
@@ -139,10 +139,10 @@ float pnoise(float3 P, float3 rep) {
     return 2.2 * n_xyz;
 }
 
-void cnoise_float(float3 In, out float Out) {
+[noinline] void cnoise_float(float3 In, out float Out) {
     Out = cnoise(In);
 }
-void pnoise_float(float3 In, float3 Rep, out float Out) {
+[noinline] void pnoise_float(float3 In, float3 Rep, out float Out) {
     Out = pnoise(In, Rep);
 }
 

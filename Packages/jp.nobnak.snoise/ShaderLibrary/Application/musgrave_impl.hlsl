@@ -15,7 +15,7 @@
 #define MUSGRAVE_HETEROGENEOUS_TERRAIN 4
 
 // Amp bands assume |noise|<=1. Upper/Lower are conservative brackets for normalization (Hybrid/Heterogeneous lower is symmetric heuristic).
-static void MusgraveNoise_Simplex(MUSGRAVE_COORD_T x, float scale, float detail, float dimension,
+[noinline] static void MusgraveNoise_Simplex(MUSGRAVE_COORD_T x, float scale, float detail, float dimension,
 	float lacunarity, int musgraveType, out float outNoise, out float outUpper, out float outLower)
 {
 	static const int MAX_OCT = 15;

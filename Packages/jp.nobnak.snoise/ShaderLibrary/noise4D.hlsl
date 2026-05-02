@@ -15,7 +15,7 @@
 
 #include "common.hlsl"
 
-float snoise(float4 v) {
+[noinline] float snoise(float4 v) {
     // (sqrt(5) - 1)/4 = F4, used once below
     static float F4 = 0.309016994374947451;
     static float4 C = float4(0.138196601125011, // (5 - sqrt(5))/20  G4
@@ -94,7 +94,7 @@ float snoise(float4 v) {
 
 }
 
-void snoise_float(float4 In, out float Out) {
+[noinline] void snoise_float(float4 In, out float Out) {
     Out = snoise(In);
 }
 

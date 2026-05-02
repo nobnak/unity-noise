@@ -11,7 +11,7 @@
 
 // Cellular noise, returning F1 and F2 in a float2.
 // Standard 3x3 search window for good F1 and F2 values
-float2 cellular(float2 P) {
+[noinline] float2 cellular(float2 P) {
     static float K = 0.142857142857; // 1/7
     static float Ko = 0.428571428571; // 3/7
     static float jitter = 1.0; // Less gives more regular pattern
@@ -52,7 +52,7 @@ float2 cellular(float2 P) {
     return sqrt(d1.xy);
 }
 
-void cellular_float(float2 In, out float2 Out) {
+[noinline] void cellular_float(float2 In, out float2 Out) {
     Out = cellular(In);
 }
 

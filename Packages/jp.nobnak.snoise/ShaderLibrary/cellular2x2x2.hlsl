@@ -14,7 +14,7 @@
 // at the expense of some pattern artifacts.
 // F2 is often wrong and has sharp discontinuities.
 // If you need a good F2, use the slower 3x3x3 version.
-float2 cellular2x2x2(float3 P) {
+[noinline] float2 cellular2x2x2(float3 P) {
     static float K = 0.142857142857; // 1/7
     static float Ko = 0.428571428571; // 1/2-K/2
     static float K2 = 0.020408163265306; // 1/(7*7)
@@ -66,7 +66,7 @@ float2 cellular2x2x2(float3 P) {
 #endif
 }
 
-void cellular2x2x2_float(float3 In, out float2 Out) {
+[noinline] void cellular2x2x2_float(float3 In, out float2 Out) {
 	Out = cellular2x2x2(In);
 }
 

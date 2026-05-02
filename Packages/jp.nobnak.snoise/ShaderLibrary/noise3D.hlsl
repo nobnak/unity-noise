@@ -15,7 +15,7 @@
 
 #include "common.hlsl"
 
-float snoise(float3 v) {
+[noinline] float snoise(float3 v) {
     static float2 C = float2(1.0 / 6.0, 1.0 / 3.0);
     static float4 D = float4(0.0, 0.5, 1.0, 2.0);
 
@@ -89,7 +89,7 @@ float snoise(float3 v) {
                                 dot(p2, x2), dot(p3, x3)));
 }
 
-void snoise_float(float3 In, out float Out) { 
+[noinline] void snoise_float(float3 In, out float Out) { 
     Out = snoise(In);
 }
 
