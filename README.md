@@ -26,6 +26,7 @@ Noise functions are ported from [Noise for GLSL](https://github.com/stegu/webgl-
   - [4DNoise](#4dnoise)
 - [Requirements](#requirements)
 - [Installation (OpenUPM)](#installation-openupm)
+- [CPU API (Burst)](#cpu-api-burst)
 - [Package layout](#package-layout)
 - [Further documentation](#further-documentation)
 
@@ -211,10 +212,23 @@ Package: [jp.nobnak.snoise](https://openupm.com/packages/jp.nobnak.snoise/)
 
 2. **Window → Package Manager** → **My Registries** → install **Gradient Noise Nodes**, or **Add package by name**: `jp.nobnak.snoise`
 
+## CPU API (Burst)
+
+Core gradient noise is also available from C# (`Nobnak.Noise`), ported from the same HLSL. Results are deterministic for a given input; GPU bit-exact match is not guaranteed.
+
+| Class | API |
+| ----- | --- |
+| `Simplex` | `SNoise(float2/3)`, `SNoise(float3, out float3 gradient)` |
+| `Classic` | `CNoise(float2/3)`, `PNoise(float2/3, rep)` |
+| `NoiseBatch` | `ScheduleSNoise` / `ScheduleCNoise` / `SchedulePNoise` (`NativeArray` + Burst Jobs) |
+
+Requires `com.unity.mathematics`, `com.unity.burst`, `com.unity.collections`.
+
 ## Package layout
 
 ```
 Packages/jp.nobnak.snoise/
+├── Runtime/         # C# CPU noise (Simplex, Classic, NoiseBatch)
 ├── ShaderGraph/     # Subgraphs (Noises/, Apps/)
 └── ShaderLibrary/   # HLSL (noise*.hlsl, cellular*.hlsl, Application/musgrave*.hlsl)
 ```
